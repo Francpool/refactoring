@@ -7,5 +7,6 @@ router.post("/", toyController.createToy);
 router.get("/:id", toyController.getToy);
 // Ruta para actualizar un juguete por ID
 router.patch("/:id", toyController.updateToy);
+router.delete("/:id", toyController.deleteToyById);
 
 module.exports = router;

@@ -14,53 +14,11 @@
     "picture": "bear.png"
   },
   {
-    "id": 3,
-    "name": "toy_1",
-    "price": 2,
-    "description": "Generated toy number 1",
-    "picture": "toy_1.png"
-  },
-  {
-    "id": 4,
-    "name": "toy_2",
-    "price": 64,
-    "description": "Generated toy number 2",
-    "picture": "toy_2.png"
-  },
-  {
-    "id": 5,
-    "name": "toy_3",
-    "price": 85,
-    "description": "Generated toy number 3",
-    "picture": "toy_3.png"
-  },
-  {
-    "id": 6,
-    "name": "toy_4",
-    "price": 75,
-    "description": "Generated toy number 4",
-    "picture": "toy_4.png"
-  },
-  {
-    "id": 7,
-    "name": "toy_5",
-    "price": 39,
-    "description": "Generated toy number 5",
-    "picture": "toy_5.png"
-  },
-  {
     "id": 8,
     "name": "toy_6",
     "price": 25,
     "description": "Generated toy number 6",
     "picture": "toy_6.png"
-  },
-  {
-    "id": 9,
-    "name": "toy_7",
-    "price": 22,
-    "description": "Generated toy number 7",
-    "picture": "toy_7.png"
   },
   {
     "id": 10,

@@ -48,5 +48,23 @@ function updateToy(req, res) {
     });
 }
 
+function deleteToyById(req, res) {
+    const id = Number(req.params.id);
+    const deletedToy = ToyModel.deleteToyById(id);
 
-module.exports = { getToys, createToy,getToy, updateToy };
+    if (!deletedToy) {
+        return res.status(404).json({
+            status: "fail",
+            message: "ID not found"
+        });
+    }
+
+    res.status(200).json({
+        status: "success",
+        data: deletedToy
+    });
+
+}
+
+
+module.exports = { getToys, createToy,getToy, updateToy, deleteToyById };

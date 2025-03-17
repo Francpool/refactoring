@@ -1,7 +1,7 @@
-const fs = require("fs");
+
 
 const filePath = "./data/data.json";
-
+const fs = require("fs");
 function getAllToys() {
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
 }
@@ -51,5 +51,23 @@ function updateToyById(id, updates) {
     return toy;
 }
 
+// Funcion para borrar un juguete por ID
+function deleteToyById(id) {
+    const toys = getAllToys();
+    const toyIndex = toys.findIndex(toy => toy.id === id);
 
-module.exports = { getAllToys, addToy, getToyById, updateToyById  };
+    if (toyIndex === -1) return null; // Si el juguete no existe, retornamos null
+
+    const toy = toys[toyIndex];
+
+    // Eliminamos el juguete de la lista
+    toys.splice(toyIndex, 1);
+
+    // Guardamos los cambios en el archivo JSON
+    saveToys(toys);
+
+    return toy;
+}
+
+
+module.exports = { getAllToys, addToy, getToyById, updateToyById,deleteToyById  };
