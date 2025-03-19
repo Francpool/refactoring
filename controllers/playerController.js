@@ -57,6 +57,13 @@ function deletePlayer(req, res) {
             message: "Player not found",
         });
     }
+    res.status(200).json({
+        status: "success",
+        data: player
+    });
+
+
+
 }
 
 module.exports = {

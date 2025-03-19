@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "car",
-    "price": 50,
+    "name": "woody",
+    "price": 15.97,
     "description": "speed car with controller",
     "picture": "car.png"
   },
@@ -89,13 +89,6 @@
     "price": 51,
     "description": "Generated toy number 17",
     "picture": "toy_17.png"
-  },
-  {
-    "id": 20,
-    "name": "toy_18",
-    "price": 13,
-    "description": "Generated toy number 18",
-    "picture": "toy_18.png"
   },
   {
     "id": 21,

@@ -36,11 +36,11 @@ function updatePlayerById(id, updates
     if (playerIndex === -1) return null; // Si el jugador no existe, retornamos null
 
     const player = players[playerIndex];
-
+    
     // Aplicamos las actualizaciones
-    if (updates.name) player.name = updates.name;
+    if (updates.firstname) player.firstname = updates.firstname;
+    if (updates.lastname) player.lastname = updates.lastname;
     if (updates.age) player.age = updates.age;
-    if (updates.position) player.position = updates.position;
     if (updates.team) player.team = updates.team;
 
     // Guardamos los cambios en el archivo JSON
@@ -55,7 +55,9 @@ function deletePlayerById(id) {
 
     if (playerIndex === -1) return null; // Si el jugador no existe, retornamos null
 
-    const player = players.splice(playerIndex, 1)[0];
+    // const player = players.splice(playerIndex, 1)[0];
+    const player = players[playerIndex];
+    players.splice(playerIndex, 1);
     savePlayers(players);
 
     return player;
