@@ -1,14 +1,17 @@
 
 
 const filePath = "./data/data.json";
+
 const fs = require("fs");
 function getAllToys() {
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
 }
 
+
 function saveToys(toys) {
     fs.writeFileSync(filePath, JSON.stringify(toys, null, 2));
 }
+
 
 function getNewToyID(toys) {
     if (toys.length === 0) return 1; // Evitar errores si la lista está vacía
@@ -70,4 +73,4 @@ function deleteToyById(id) {
 }
 
 
-module.exports = { getAllToys, addToy, getToyById, updateToyById,deleteToyById  };
+module.exports = { getAllToys, addToy, getToyById, updateToyById,deleteToyById };

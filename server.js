@@ -6,11 +6,13 @@
 
 const express = require("express");
 const toyRoutes = require("./routes/toyRoutes");
+const playerRoutes = require("./routes/playerRoutes");
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use("/api/v1/toys", toyRoutes);
+app.use("/api/v1/players", playerRoutes);
 app.use("/assets", express.static(__dirname + "/public"));
 
 app.get("/firstpage", (req, res) => {
