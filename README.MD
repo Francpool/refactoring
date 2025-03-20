@@ -45,3 +45,13 @@ In this project, we have a models folder with 2 controller files that have a sim
 ## Controller
 
 In this section, we created functions to retrieve data or execute requests based on the required path.
+```
+- function getToys(req, res) { }
+- function createToy(req, res) { }
+- function getToy(req, res) { }
+- function createToy(req, res) { }
+- function getToy(req, res) { }
+- function updateToy(req, res) { }
+- function deleteToyById(req, res) { }
+
+```
