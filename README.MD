@@ -56,3 +56,6 @@ In this section, we created functions to retrieve data or execute requests based
 - function deleteToyById(req, res) { }
 
 ```
+# Connection to MongoDB
+
+In this version, there is a config folder containing the MongoDB connection, along with a new controller for People
