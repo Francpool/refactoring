@@ -19,7 +19,6 @@ connectDB(); // Establecer la conexión antes de iniciar el servidor
 
 // Middleware para procesar solicitudes JSON
 app.use(express.json());
-app.use(bodyParser.json()); // Si usas body-parser también puedes configurarlo aquí
 
 // Rutas
 app.use("/api/v1/toys", toyRoutes);
