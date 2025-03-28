@@ -62,8 +62,6 @@ function deletePlayer(req, res) {
         data: player
     });
 
-
-
 }
 
 module.exports = {
