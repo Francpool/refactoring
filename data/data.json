@@ -675,5 +675,19 @@
   },
   {
     "id": 106
+  },
+  {
+    "name": "Teddy Bear",
+    "description": "A soft and adorable brown teddy bear, perfect for cuddling",
+    "picture": "https://example.com/images/teddy-bear.jpg",
+    "price": 24.99,
+    "id": 107
+  },
+  {
+    "name": "Teddy Bear",
+    "description": "A soft and adorable brown teddy bear, perfect for cuddling",
+    "picture": "https://example.com/images/teddy-bear.jpg",
+    "price": 24.99,
+    "id": 108
   }
 ]
