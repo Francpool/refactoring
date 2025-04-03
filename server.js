@@ -10,12 +10,14 @@ const playerRoutes = require("./routes/playerRoutes");
 const personRoutes = require("./routes/personRoutes");
 const bodyParser = require('body-parser');
 const connectDB = require('./config/mongodb'); // Importamos la conexión a la base de datos
+const connectDbLocal = require('./config/mongoLocal'); // Importamos la conexión a la base de datos local
 
 const app = express();
 const port = 3000;
 
 // Conectar a la base de datos
-connectDB(); // Establecer la conexión antes de iniciar el servidor
+//connectDB();  Establecer la conexión antes de iniciar el servidor
+connectDbLocal(); // Conectar a la base de datos local
 
 // Middleware para procesar solicitudes JSON
 app.use(express.json());
