@@ -1,0 +1,133 @@
+/* Main Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+/* Data Item Cards */
+.data-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    height: 100%;
+}
+
+.data-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.data-item .card-img-top {
+    height: 180px;
+    object-fit: contain;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.data-item .card-body {
+    padding: 15px;
+}
+
+.data-item .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.data-item .card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.data-item .badge {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Person Cards */
+.person-card .card-body {
+    padding: 20px;
+}
+
+.person-card .person-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.person-card .person-dates {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.person-card .person-contribs {
+    margin-top: 10px;
+}
+
+.person-card .badge {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Player Cards */
+.player-card .player-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.player-card .player-team {
+    font-weight: 500;
+    color: #0d6efd;
+}
+
+/* Toy Cards */
+.toy-card .toy-price {
+    font-weight: 600;
+    color: #198754;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 500;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        border-radius: 0.25rem !important;
+        margin-bottom: 5px;
+    }
+}

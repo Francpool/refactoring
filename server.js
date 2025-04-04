@@ -28,9 +28,9 @@ app.use("/api/localmongo/toys", toyRoutesLocal); // Rutas para la base de datos 
 // Servir archivos estáticos
 app.use("/assets", express.static(__dirname + "/public"));
 
-// Ruta de ejemplo
-app.get("/firstpage", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+// Ruta principal para la interfaz de usuario
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
 });
 
 // Iniciar el servidor
