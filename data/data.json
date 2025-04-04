@@ -649,45 +649,5 @@
     "price": 55,
     "description": "Generated toy number 98",
     "picture": "toy_98.png"
-  },
-  {
-    "id": 101,
-    "name": "toy_99",
-    "price": 47,
-    "description": "Generated toy number 99",
-    "picture": "toy_99.png"
-  },
-  {
-    "id": 102,
-    "name": "toy_100",
-    "price": 46,
-    "description": "Generated toy number 100",
-    "picture": "toy_100.png"
-  },
-  {
-    "id": 103
-  },
-  {
-    "id": 104
-  },
-  {
-    "id": 105
-  },
-  {
-    "id": 106
-  },
-  {
-    "name": "Teddy Bear",
-    "description": "A soft and adorable brown teddy bear, perfect for cuddling",
-    "picture": "https://example.com/images/teddy-bear.jpg",
-    "price": 24.99,
-    "id": 107
-  },
-  {
-    "name": "Teddy Bear",
-    "description": "A soft and adorable brown teddy bear, perfect for cuddling",
-    "picture": "https://example.com/images/teddy-bear.jpg",
-    "price": 24.99,
-    "id": 108
   }
 ]

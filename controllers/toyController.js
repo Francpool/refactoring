@@ -1,10 +1,25 @@
 const ToyModel = require("../models/toyModel");
 
 function getToys(req, res) {
-    res.status(200).json({
-        status: "success",
-        data: ToyModel.getAllToys(),
-    });
+
+    let toys = ToyModel.getAllToys();
+    let html = `<ul>`;
+  toys.forEach(toy => {
+    html += `<li>${toy.id}</li>`;
+    html += `<ul>`;
+    html += `<li>${toy.name}</li>`;
+    html += `<li>${toy.price}</li>`;
+    html += `<li>${toy.description}</li>`;
+    html += `<li>${toy.image}</li>`;
+    html += `</ul>`;
+  });
+  html += `</ul>`;
+  res.send(html);
+
+    // res.status(200).json({
+    //     status: "success",
+    //     data: ToyModel.getAllToys(),
+    // });
 }
 
 function createToy(req, res) {
