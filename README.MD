@@ -1,6 +1,8 @@
 github link: https://github.com/Francpool/refactoring.git
 
 # Project Overview
+## Dashboard improved
+![Diagrama](img/dashboard.PNG)
 
 ## New Features
 
@@ -12,6 +14,9 @@ In this updated version, a new branch named `mongodb` has been introduced. This 
 Additionally, toy data is also available through a static JSON file.
 
 ## Available Endpoints
+- **Cloud MongoDB – Product data**  
+  Retrieve person data from the cloud-based MongoDB:
+http://localhost:3000/api/v1/products/
 
 - **Cloud MongoDB – People data**  
   Retrieve person data from the cloud-based MongoDB:
