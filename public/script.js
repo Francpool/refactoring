@@ -34,6 +34,10 @@ async function loadData(category) {
             endpoint = '/api/v1/people';
             title = 'People Database';
             break;
+            case 'products':
+                endpoint = '/api/v1/products';
+                title = 'Products Inventory';
+                break;
         default:
             console.error('Invalid category');
             return;
@@ -86,6 +90,9 @@ function displayData(category, data) {
             case 'people':
                 cardContent = createPersonCard(item);
                 break;
+                case 'products':
+                    cardContent = createProductCard(item);
+                    break;
         }
         
         col.innerHTML = cardContent;
@@ -146,6 +153,21 @@ function createPersonCard(person) {
         </div>
     `;
 }
+
+// Create product card
+function createProductCard(product) {
+    return `
+      <div class="card data-item product-card">
+        <div class="card-body">
+          <h5 class="card-title">${product.title || 'Unnamed Product'}</h5>
+          <p class="card-text">${product.description || 'No description'}</p>
+          <p class="product-tags">${(product.tags || []).join(', ')}</p>
+          <p class="product-age">Age: ${product.age || 'N/A'}</p>
+          <p class="product-price">$${product.price?.toFixed(2) || '0.00'}</p>
+        </div>
+      </div>
+    `;
+  }
 
 // Show details of a specific item
 function showItemDetails(category, item) {
@@ -259,6 +281,35 @@ function showItemDetails(category, item) {
                 </div>
             `;
             break;
+
+            case 'products':
+    detailContent += `
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">ID:</div>
+            <div class="col-8">${item._id || item.id || 'N/A'}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">Title:</div>
+            <div class="col-8">${item.title || 'N/A'}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">Description:</div>
+            <div class="col-8">${item.description || 'N/A'}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">Tags:</div>
+            <div class="col-8">${(item.tags || []).join(', ') || 'None'}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">Age:</div>
+            <div class="col-8">${item.age || 'N/A'}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 fw-bold">Price:</div>
+            <div class="col-8">$${item.price?.toFixed(2) || '0.00'}</div>
+        </div>
+    `;
+    break;
     }
     
     detailContent += '</div>';
@@ -357,6 +408,32 @@ function showAddForm() {
                 </div>
             `;
             break;
+
+            case 'products':
+    formFields.innerHTML = `
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="tags" class="form-label">Tags (comma separated)</label>
+            <input type="text" class="form-control" id="tags" name="tags">
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age" min="0">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" required>
+        </div>
+    `;
+    break;
+
     }
     
     // Set the form to add mode
@@ -452,6 +529,32 @@ function showEditForm(item) {
                 </div>
             `;
             break;
+
+            case 'products':
+    const tags = item.tags && item.tags.length > 0 ? item.tags.join(', ') : '';
+    formFields.innerHTML = `
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="${item.title || ''}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3">${item.description || ''}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="tags" class="form-label">Tags (comma separated)</label>
+            <input type="text" class="form-control" id="tags" name="tags" value="${tags}">
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age" min="0" value="${item.age || ''}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01" min="0" value="${item.price || ''}" required>
+        </div>
+    `;
+    break;
     }
     
     // Set the form to edit mode
@@ -511,6 +614,20 @@ async function handleFormSubmit(event) {
             };
             endpoint = `/api/v1/people${mode === 'edit' ? `/${id}` : ''}`;
             break;
+
+            case 'products':
+    const tagsStr = formData.get('tags');
+    const tagsArray = tagsStr ? tagsStr.split(',').map(tag => tag.trim()).filter(Boolean) : [];
+
+    data = {
+        title: formData.get('title'),
+        description: formData.get('description'),
+        tags: tagsArray,
+        age: parseInt(formData.get('age')),
+        price: parseFloat(formData.get('price')),
+    };
+    endpoint = `/api/v1/products${mode === 'edit' ? `/${id}` : ''}`;
+    break;
     }
     
     try {

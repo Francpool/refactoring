@@ -9,6 +9,7 @@ const toyRoutes = require("./routes/toyRoutes");
 const playerRoutes = require("./routes/playerRoutes");
 const personRoutes = require("./routes/personRoutes");
 const toyRoutesLocal = require("./routes/toyRoutesLocalDB"); // Importamos las rutas para la base de datos local
+const productRoutes = require("./routes/productRoutes"); // Importamos las rutas para los productos
 const {connectLocalDB, connectCloudDB} = require('./config/driverMongo.DB'); // Importamos las conexiones a la base de datos
 
 const app = express();
@@ -24,14 +25,16 @@ app.use("/api/v1/toys", toyRoutes);
 app.use("/api/v1/players", playerRoutes);
 app.use("/api/v1/people", personRoutes);
 app.use("/api/localmongo/toys", toyRoutesLocal); // Rutas para la base de datos local
+app.use("/api/v1/products", productRoutes); // Rutas para los productos
 
 // Servir archivos estáticos
-app.use("/assets", express.static(__dirname + "/public"));
+// app.use("/assets", express.static(__dirname + "/public"));// Servir archivos estáticos desde la carpeta "public"
+app.use(express.static(__dirname + "/public"));
 
 // Ruta principal para la interfaz de usuario
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//     res.sendFile(__dirname + "/index.html");
+// });
 
 // Iniciar el servidor
 app.listen(port, () => {

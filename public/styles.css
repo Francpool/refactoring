@@ -131,3 +131,18 @@ body {
         margin-bottom: 5px;
     }
 }
+/* Product Cards */
+.product-card .product-price {
+    font-weight: 600;
+    color: #dc3545;
+}
+
+.product-card .product-tags {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.product-card .product-age {
+    font-size: 0.85rem;
+    color: #198754;
+}
